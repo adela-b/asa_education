@@ -1,9 +1,11 @@
 <?php
-$host = getenv("DB_HOST");
-$db_name = getenv("DB_NAME");
-$username = getenv("DB_USER");
-$password = getenv("DB_PASS");
-$port = getenv("DB_PORT");
+session_start();
+
+$host = "mysql.railway.internal";
+$db_name = "railway";
+$username = "root";
+$password = "aCofDFLnyXaOGNFJnMUNUVsINjtuJrmJ";
+$port = 3306;
 
 try {
     $pdo = new PDO(
@@ -12,10 +14,9 @@ try {
         $password
     );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 } catch (PDOException $e) {
-    die("Lidhja me databazen deshtoi: " . $e->getMessage());
+    die("Lidhja me databazën dështoi: " . $e->getMessage());
 }
-
-session_start();
 ?>
+
+
